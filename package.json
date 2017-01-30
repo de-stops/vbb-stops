@@ -1,0 +1,11 @@
+{
+	"name":         "vbb-stops",
+	"version":      "0.0.1",
+	"main":         "index.js",
+	"files":        ["index.js"],
+	"engines" :     {"node": ">=6"},
+	"dependencies": {
+		"csv": "^1.1.1",
+		"got": "^6.3"
+	}
+}
