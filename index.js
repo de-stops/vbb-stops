@@ -19,13 +19,14 @@ fs.readFile('data/stops.txt', 'utf8', function(err, data)  {
 				
 				return {
 					stop_id : String(stop_id),
+					stop_code : String(stop.stop_id),
 					stop_name : stop.stop_name,
 					stop_lon : Number(stop.stop_lon),
 					stop_lat : Number(stop.stop_lat)
 				};
 			})
 			.filter(stop => (stop.stop_id >= 9000000 && stop.stop_id < 9500000));
-		csv.stringify(processedStops, {header: true, quotedString: true}, function(err, data){
+		csv.stringify(processedStops, {header: true, quotedString: true, columns: ["stop_id", "stop_name", "stop_lon", "stop_lat", "stop_code"]}, function(err, data){
 			process.stdout.write(data);
 		});
 	});
